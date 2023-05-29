@@ -25,6 +25,8 @@ namespace Concours35_MonitorRanking
 
         private bool _running = false;
 
+        private int _refreshTimeMilliseconds = 5000;
+
 
         private BackgroundWorker backgroundWorker;
 
@@ -43,7 +45,7 @@ namespace Concours35_MonitorRanking
             while (true)
             {
                 processFile();
-                Thread.Sleep(1000);
+                Thread.Sleep(_refreshTimeMilliseconds);
                 if (backgroundWorker.CancellationPending)
                 {
                     return;
@@ -126,7 +128,7 @@ namespace Concours35_MonitorRanking
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
                     _outputPath = fbd.SelectedPath;
-                    _outputFile = _outputPath + "/concours35-monitor-ranking.txt";
+                    _outputFile = _outputPath + "/concours35-monitor-ranking.csv";
                     label_selectedOutputFolder.Text = _outputFile;
 
                     if (!File.Exists(_outputFile))
