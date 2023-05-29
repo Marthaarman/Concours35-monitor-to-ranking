@@ -41,7 +41,7 @@
             // 
             this.button_selectFile.Location = new System.Drawing.Point(102, 61);
             this.button_selectFile.Name = "button_selectFile";
-            this.button_selectFile.Size = new System.Drawing.Size(149, 23);
+            this.button_selectFile.Size = new System.Drawing.Size(149, 30);
             this.button_selectFile.TabIndex = 0;
             this.button_selectFile.Text = "Select .DAT file";
             this.button_selectFile.UseVisualStyleBackColor = true;
@@ -60,7 +60,7 @@
             // 
             this.button_selectOutputFolder.Location = new System.Drawing.Point(102, 195);
             this.button_selectOutputFolder.Name = "button_selectOutputFolder";
-            this.button_selectOutputFolder.Size = new System.Drawing.Size(149, 23);
+            this.button_selectOutputFolder.Size = new System.Drawing.Size(149, 32);
             this.button_selectOutputFolder.TabIndex = 2;
             this.button_selectOutputFolder.Text = "Select Output Folder";
             this.button_selectOutputFolder.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             // 
             this.button_run.Location = new System.Drawing.Point(102, 277);
             this.button_run.Name = "button_run";
-            this.button_run.Size = new System.Drawing.Size(75, 23);
+            this.button_run.Size = new System.Drawing.Size(606, 35);
             this.button_run.TabIndex = 4;
             this.button_run.Text = "Run";
             this.button_run.UseVisualStyleBackColor = true;
@@ -88,7 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(408, 425);
+            this.label1.Location = new System.Drawing.Point(13, 397);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(380, 16);
             this.label1.TabIndex = 5;

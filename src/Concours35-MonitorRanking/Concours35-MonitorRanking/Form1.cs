@@ -52,7 +52,8 @@ namespace Concours35_MonitorRanking
                 {
                     continue;
                 }
-                
+
+
                 Thread.Sleep(_refreshTimeMilliseconds);
                 if (backgroundWorker.CancellationPending)
                 {
@@ -90,11 +91,11 @@ namespace Concours35_MonitorRanking
             Array.Clear(_rankingNames, 0, _rankingNames.Length);
             if (File.Exists(_file))
             {
-                using (StreamReader file = new StreamReader(_file))
+                using (StreamReader file = new StreamReader(_file, Encoding.Default))
                 {
                     string ln;
                     _rankingCount = 0;
-                    while ((ln = file.ReadLine()) != null)
+                    while ((ln = file.ReadLine()) != null && _rankingCount < _rankingSize)
                     {
                         string[] words = ln.Split('	');
                         if (words.Length > 0)
@@ -106,6 +107,7 @@ namespace Concours35_MonitorRanking
                                 if (int.TryParse(numberString, out numberInt))
                                 {
                                     _rankingNames[_rankingCount] = words[2];
+                                    Console.WriteLine(words[2]);
                                     _rankingCount++;
                                 }
                             }
@@ -115,7 +117,7 @@ namespace Concours35_MonitorRanking
                     file.Close();
                 }
 
-                using (StreamWriter writer = new StreamWriter(_outputFile, false))
+                using (StreamWriter writer = new StreamWriter(_outputFile, false, Encoding.UTF8))
                 {
                     foreach (string rankingName in _rankingNames)
                     {
@@ -169,7 +171,6 @@ namespace Concours35_MonitorRanking
                 button_run.Text = "Stop";
                 _running = true;
                 backgroundWorker.RunWorkerAsync();
-                
             }
             else
             {
