@@ -44,7 +44,15 @@ namespace Concours35_MonitorRanking
         {
             while (true)
             {
-                processFile();
+                try
+                {
+                    processFile();
+                }
+                catch (Exception ex)
+                {
+                    continue;
+                }
+                
                 Thread.Sleep(_refreshTimeMilliseconds);
                 if (backgroundWorker.CancellationPending)
                 {
